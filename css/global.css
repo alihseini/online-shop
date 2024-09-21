@@ -1,0 +1,131 @@
+:root{
+    --color-primary: #6c5ce7;
+    --color-secondry:#1e66f72a;
+    --color-full:#f8f7fc;
+    --color-warning:#e9c601;
+    --color-error:#f75e4b;
+    --color-selected:#beb7ec;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--color-full);
+    width: 1300px;
+}
+header{
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px auto;
+}
+.header-buttons{
+    background-color: #fff;
+    padding: 11px;
+    border-radius: 10px;
+    margin: 0 10px;
+    transition: all 0.2s ease-in;
+}
+.header-buttons:hover{
+    background-color: black;
+    color: #fff;
+}
+h1{
+    color: var(--color-primary);
+}
+input{
+    border:1px var(--color-primary) solid ;
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+}
+button{
+    border: none;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 7px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    transition: all 0.25s ease-in;
+}
+button:hover{
+    cursor: pointer;
+    background-color: var(--color-selected);
+    color: #000;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+input:focus{
+    outline: none;
+    border-width: 2px;
+}
+.error-message{
+    color: var(--color-error);
+    font-weight: bold;
+    width: 300px;
+    display: none;
+}
+#loader{
+    width: 100px;
+    height: 100px;
+    border: 7px solid var(--color-primary);
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: rotation 0.9s infinite linear;
+}
+
+@keyframes rotation {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    background-color: #beb7ec52;
+}
+#modal > div{
+    width: 700px;
+    height: 70px;
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 6px 129px 12px rgba(0,0,0,0.49);
+    animation: downToUp 0.5s;
+}
+#modal p{
+    color: #f75e4b;
+    margin-left: 20px;
+    font-size: 1.25rem;
+    width: 600px;
+}
+#modal button{
+    margin-right: 10px;
+    font-size: 1rem;
+}
+@keyframes downToUp {
+    0%{
+        transform: translateY(150px);
+        
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
