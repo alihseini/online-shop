@@ -6,6 +6,12 @@ body > p{
     margin: 40px auto;
     font-size: 1.7rem;
     font-weight: bold;
+    color: var(--color-primary);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 #container{
     width: 1200px;
@@ -17,8 +23,15 @@ body > p{
     display: flex;
     align-items: center;
     margin: 20px 0px;
-    background-color: #fff;
-    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+.user:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 .user > span{
     width: auto;
@@ -27,23 +40,30 @@ body > p{
     font-size: 1.3rem;
     color: #fff;
     text-align: center;
-    background-color: var(--color-primary);
-    border-radius: 7px;
+    background: var(--gradient-primary);
+    border-radius: 10px;
 }
 .title{
     color: var(--color-primary);
     font-weight: bold;
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 .info{
     width: 170px;
     height: 100px;
     padding: 17px;
-    background-color: var(--color-full);
-    border-radius: 7px;
+    background: var(--color-full);
+    border-radius: 10px;
     font-size: 1.1rem;
     margin: 0px 25px;
+    transition: all 0.3s ease;
 }
-.email , .address{
+.info:hover {
+    transform: translateY(-5px);
+}
+.email, .address{
     width: 230px;
 }

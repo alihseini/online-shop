@@ -3,38 +3,56 @@
     display: flex;
     gap: 20px;
     margin: 30px auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 #container{
     margin: 70px auto;
     width: 1200px;
     display: flex;
     justify-content: space-between;
+    gap: 30px;
 }
 .filtering p{
     color: var(--color-primary);
     font-size: 1.25rem;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 .filtering{
-    background-color: #fff;
-    height: 230px;
+    background: rgba(255, 255, 255, 0.9);
+    height: fit-content;
     width: 15%;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 15px;
     margin-left: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 li{
     list-style-type: none;
-    padding: 7px;
+    padding: 10px;
     margin: 5px 0px;
     cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 li:hover{
     color: var(--color-primary);
+    background: var(--color-secondry);
 }
 .selected{
-    background-color: var(--color-selected);
-    border-radius: 7px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 8px;
+}
+.selected:hover {
+    color: white;
 }
 #all-cards{
     display: grid;
@@ -46,14 +64,25 @@ li:hover{
     width: 150px;
     height: 150px;
     margin: 40px 0 10px;
+    transition: transform 0.3s ease;
+}
+.card img:hover {
+    transform: scale(1.05);
 }
 .card{
-    background-color: #fff;
+    background: rgba(255, 255, 255, 0.9);
     position: relative;
     width: 220px;
     height: 300px;
     padding: 20px;
     border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 h4{
     color: var(--color-primary);
@@ -64,11 +93,13 @@ h4{
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #f0ebeb;
+    background: rgba(255, 255, 255, 0.9);
     width: 50px;
-    padding: 3px;
+    padding: 5px;
     border-radius: 10px;
     align-items: center;
+    gap: 4px;
+    backdrop-filter: blur(5px);
 }
 .count{
     color: var(--color-error);
@@ -76,24 +107,28 @@ h4{
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #f0ebeb;
+    background: rgba(255, 255, 255, 0.9);
     width: 50px;
-    padding: 3px;
+    padding: 5px;
     border-radius: 10px;
     align-items: center;
+    gap: 4px;
+    backdrop-filter: blur(5px);
 }
 .price{
-    color: #808080;
+    color: #6b7280;
     display: flex;
     width: 100px;
-    padding: 3px;
+    padding: 5px;
     margin-top: 15px;
     border-radius: 10px;
     align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 .card button{
     width: 60px;
-    padding: 3px;
+    padding: 8px;
     font-size: 0.8rem;
     position: absolute;
     bottom: 20px;
