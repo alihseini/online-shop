@@ -1,6 +1,6 @@
-import { getCookie } from "../utils/cookie.js";
 import { getData } from "../utils/httpreq.js";
-import { closeModal } from "../utils/modal.js";
+import { getCookie } from "../utils/cookie.js";
+import { closeModal, showModal } from "../utils/modal.js";
 import { shortenText } from "../utils/stringfunc.js";
 import { addToCart } from "../utils/cartState.js";
 
@@ -11,6 +11,7 @@ const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 const filterList = document.querySelectorAll("li");
 const modalButton = document.getElementById("modal-button");
+const cartCount = document.getElementById("cart-count");
 
 let productsData = null;
 let searchedText = "";
@@ -25,6 +26,14 @@ const init = async () => {
   }
   productsData = await getData("products");
   showProducts(productsData);
+  updateCartCount();
+};
+
+const updateCartCount = () => {
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartCount.textContent = totalItems;
+  cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
 };
 
 const showProducts = (data) => {
@@ -63,7 +72,8 @@ const showProducts = (data) => {
 
 window.addToCartHandler = (product) => {
   addToCart(product);
-  window.location.href = '/cart.html';
+  updateCartCount();
+  showModal('Item added to cart successfully!');
 };
 
 const searchHandler = () => {
@@ -74,7 +84,7 @@ const searchHandler = () => {
 const filterHandler = (event) => {
   category = event.target.innerText.toLowerCase();
   filterList.forEach((li) => {
-    if (category===li.innerText.toLocaleLowerCase()) {
+    if (category === li.innerText.toLowerCase()) {
       li.className = "selected";
     } else {
       li.className = "";
